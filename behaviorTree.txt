@@ -1,0 +1,23 @@
+INFO:root:
+Selector: High Level Ordering of Strategies
+| Sequence: Defend Ally Sequence
+| | Check: cant_defend
+| | Action: defend_my_planet
+| Sequence: Largest Generation Strategy
+| | Check: have_largest_generation
+| | Check: if_no_neutral_planet_available
+| | 
+| | | Sequence: Allout Attack Sequence
+| | | | Check: have_largest_fleet
+| | | | Selector: Allout Attack Selection
+| | | | | Action: attack_weakest_enemy_planet
+| | | | | Action: attack_all_weakest_enemy_planet
+| | | Sequence: 75% Attack Sequence
+| | | | Check: have_75_percent
+| | | | Action: attack_all_weakest_enemy_planet
+| | | Sequence: 50% Attack Sequence
+| | | | Check: have_50_percent
+| | | | Action: do_nothing
+| Sequence: Spread Sequence
+| | Action: spread_to_best_production_planet
+| Action: attack_all_closest_all
